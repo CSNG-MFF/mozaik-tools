@@ -11,12 +11,24 @@ def create_experiments(model):
                             #MeasureSpontaneousActivity(model,2*147*7,1),
                             #MeasureOrientationTuningFullfield(model,num_orientations=1,spatial_frequency=0.8,temporal_frequency=2,grating_duration=4*147*7,contrasts=[0,2,4,8,16,32,64,100],num_trials=10),
 
-                            MeasurePixelMovieFromFile(model,ParameterSet({
-                                 'duration' : 70,
+                            #MeasurePixelMovieFromFile(model,ParameterSet({
+                            #      'duration' : 70,
+                            #      'movie_path' : './',
+                            #      'movie_name' : 'example_pixel_movie.npy',
+                            #      'num_trials' : 1,
+                            #      'shuffle_stimuli' : False
+                            #  })),
+
+                            MeasurePixelMovieFromFileNew(model,ParameterSet({
                                  'movie_path' : './',
                                  'movie_name' : 'example_pixel_movie.npy',
-                                 'num_trials' : 1,
-                                 'shuffle_stimuli' : False
+                                 'num_trials' : 2,
+                                 'shuffle_stimuli' : False,
+                                 'width' : 11,
+                                 'movie_frame_duration' : 14,
+                                 'global_frame_offset' : 0,
+                                 'images_per_trial' : 5,
+                                 'num_presentation_trials' : 2
                              })),
 
             

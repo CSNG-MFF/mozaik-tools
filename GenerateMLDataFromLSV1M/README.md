@@ -1,0 +1,1 @@
+Note you have to match the experiment chosen in run_parameter_search.py with the corre run_* file when executing the slurm parallel job.

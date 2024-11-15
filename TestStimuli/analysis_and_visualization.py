@@ -9,12 +9,19 @@ from mozaik.storage.queries import *
 from mozaik.storage.datastore import PickledDataStore
 from mozaik.tools.circ_stat import circular_dist
 import sys
-sys.path.append('/home/jan/projects/mozaik/contrib')
+
+sys.path.append("/home/jan/projects/mozaik/contrib")
+
 
 def perform_analysis_and_visualization(data_store):
 
-    RetinalInputMovie(data_store,ParameterSet({}),plot_file_name="mov",fig_param={'dpi' : 300,'figsize': (1,1)}).plot({'*.title' : None})
+    RetinalInputMovie(
+        data_store,
+        ParameterSet({}),
+        plot_file_name="mov",
+        fig_param={"dpi": 300, "figsize": (1, 1)},
+    ).plot({"*.title": None})
 
     import pylab
-    pylab.show()
 
+    pylab.show()

@@ -5,7 +5,8 @@ Antolík, J., Cagnol, R., Rózsa, T., Monier, C., Frégnac, Y., & Davison, A. P.
 https://www.biorxiv.org/content/10.1101/416156v5.abstract
 """
 import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 
 from mpi4py import MPI
 from mozaik.storage.datastore import Hdf5DataStore, PickledDataStore
@@ -24,9 +25,12 @@ from mpi4py import MPI
 mpi_comm = MPI.COMM_WORLD
 
 import nest
+
 nest.Install("stepcurrentmodule")
 
-data_store, model = run_workflow('SelfSustainedPushPull', SelfSustainedPushPull, create_experiments_KatrinFranke)
+data_store, model = run_workflow(
+    "SelfSustainedPushPull", SelfSustainedPushPull, create_experiments_KatrinFranke
+)
 data_store.save()
 
 if mpi_comm.rank == 0:

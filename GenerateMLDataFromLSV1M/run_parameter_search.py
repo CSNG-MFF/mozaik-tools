@@ -88,8 +88,10 @@ elif experiment == "KatrinFranke":
         ),
         {
             "trial": [1],
-            "input_space.update_interval": [5],
-            "sheets.retina_lgn.params.receptive_field.temporal_resolution": [5],
+            "input_space.update_interval": [10],
+            "sheets.retina_lgn.params.receptive_field.temporal_resolution": [10],
             "null_stimulus_period": [300],
+            "experiments_global_frame_offset" : [0,1,2,3,4,5,6,7,8,9,10,11],
+            "num_presentation_trials" : [303]
         },
     ).run_parameter_search()

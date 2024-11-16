@@ -6,6 +6,7 @@ import os
 
 
 def create_experiments_DanButts(model):
+
     return [
         MeasurePixelMovieFromFile(
             model,
@@ -26,9 +27,12 @@ def create_experiments_DanButts(model):
     ]
 
 
-def create_experiments_KatrinFranke(model):
+def create_experiments_KatrinFranke(model,experiment_parameters):
+    global_frame_offset = experiment_parameters['global_frame_offset']
+    num_presentation_trials = experiment_parameters['num_presentation_trials']
+
     return [
-        MeasurePixelMovieFromFileNew(
+        MeasurePixelMovieFromFile(
             model,
             ParameterSet(
                 {
@@ -38,9 +42,9 @@ def create_experiments_KatrinFranke(model):
                     "shuffle_stimuli": False,
                     "width": 11,
                     "movie_frame_duration": 120,
-                    "global_frame_offset": 0,
+                    "global_frame_offset": global_frame_offset,
                     "images_per_trial": 15,
-                    "num_presentation_trials": 3333,
+                    "num_presentation_trials": num_presentation_trials,
                 }
             ),
         ),

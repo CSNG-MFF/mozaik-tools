@@ -5,14 +5,14 @@ from parameters import ParameterSet
 import os
 
 
-def create_experiments_DanButts(model):
+def create_experiments_DanButts(model,experiment_parameters):
 
     return [
         MeasurePixelMovieFromFile(
             model,
             ParameterSet(
                 {
-                    "movie_path": "/home/antolikjan//projects/mozaiknew/DATASETS/LSV1M_for_ML_MotionClouds/",
+                    "movie_path": "/home/antolikjan/projects/mozaiknew/DATASETS/LSV1M_for_ML_MotionClouds/",
                     "movie_name": str(os.environ["STIMFILE"]),
                     "num_trials": int(os.environ["NUM_TRIALS"]),
                     "shuffle_stimuli": False,

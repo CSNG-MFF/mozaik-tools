@@ -45,6 +45,7 @@
     'inhibitory_connection_ratio' : 0.6, # The fraction of connections that are onto inhibitory neurons compared to excitatory
 
     'L4ExcL4ExcConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': {
 				            'U': 0.75, 
@@ -99,6 +100,7 @@
     
     
     'L4ExcL4InhConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
                 
         'short_term_plasticity': ref('sheets.l4_cortex_exc.L4ExcL4ExcConnection.short_term_plasticity'),        

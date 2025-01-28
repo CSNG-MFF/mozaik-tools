@@ -39,7 +39,7 @@
         
     'L4InhL4ExcConnection': {
         'target_synapses' : 'inhibitory',               
-
+        'self_connections' : True,
         'short_term_plasticity': {
 		            'U': 0.75, 
 		            'tau_rec': 70, 
@@ -87,6 +87,7 @@
     },
 
     'L4InhL4InhConnection':  {
+        'self_connections' : True,
         'target_synapses' : 'inhibitory',               
         'short_term_plasticity': ref('sheets.l4_cortex_inh.L4InhL4ExcConnection.short_term_plasticity'),
         'weight_functions' : {  

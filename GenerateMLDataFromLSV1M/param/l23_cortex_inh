@@ -43,6 +43,7 @@
     'inhibitory_connection_afferent_ratio' :  ref('sheets.l4_cortex_exc.inhibitory_connection_ratio'), # The fraction of connections that are onto inhibitory neurons compared to excitatory
 
     'L23InhL23ExcConnection': {
+        'self_connections' : True,
         'target_synapses' : 'inhibitory',             
         'short_term_plasticity': {
                             'U': 0.75,
@@ -71,6 +72,7 @@
     },
 
     'L23InhL23InhConnection': {
+        'self_connections' : True,
         'target_synapses' : 'inhibitory',             
         'short_term_plasticity': ref('sheets.l23_cortex_inh.L23InhL23ExcConnection.short_term_plasticity'),
         'weight_functions' : {  
@@ -94,6 +96,7 @@
     },
 
    'L4ExcL23InhConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity':  ref('sheets.l23_cortex_exc.L4ExcL23ExcConnection.short_term_plasticity'),
         'weight_functions' : {  'f1' : {

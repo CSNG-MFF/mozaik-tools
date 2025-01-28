@@ -29,7 +29,7 @@ import nest
 nest.Install("stepcurrentmodule")
 
 data_store, model = run_workflow(
-    "SelfSustainedPushPull", SelfSustainedPushPull, create_experiments_DanButts
+    "SelfSustainedPushPull", SelfSustainedPushPull, lambda a,b: []
 )
 
 model.connectors['V1AffConnectionOn'].store_connections(data_store)
@@ -49,5 +49,11 @@ model.connectors["V1L23InhL23InhConnection"].store_connections(data_store)
 model.connectors["V1L23ExcL4ExcConnection"].store_connections(data_store)
 model.connectors["V1L23ExcL4InhConnection"].store_connections(data_store)
 
+conns = {}
+for ads in data_store.get_analysis_result(identifier='Connections'):
+    conns[ads.proj_name] = ads.weights
 
-
+import pickle
+f = open('connections.pickle','wb')
+pickle.dump(conns,f)
+f.close()

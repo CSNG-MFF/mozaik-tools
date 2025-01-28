@@ -46,6 +46,7 @@
     'K' : 2300, # Number of synapses per neuron
     
     'L23ExcL23ExcConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': ref('sheets.l4_cortex_exc.L4ExcL4ExcConnection.short_term_plasticity'),                                            
 
@@ -87,6 +88,7 @@
     },
 
     'L23ExcL23InhConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': ref('sheets.l4_cortex_exc.L4ExcL4InhConnection.short_term_plasticity'),                                            
 	'weight_functions' : ref('sheets.l23_cortex_exc.L23ExcL23ExcConnection.weight_functions'),  
@@ -126,6 +128,7 @@
 
 
     'L4ExcL23ExcConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': {
                             'U': 0.75,
@@ -172,6 +175,7 @@
     },
 
     'L23ExcL4ExcConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': {
                                         'U': 0.75,
@@ -219,6 +223,7 @@
     
 
     'L23ExcL4InhConnection': {
+        'self_connections' : True,
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': ref('sheets.l23_cortex_exc.L23ExcL4ExcConnection.short_term_plasticity'), 
         'weight_functions' : {  'f1' : {

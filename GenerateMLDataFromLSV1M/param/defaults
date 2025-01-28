@@ -21,11 +21,15 @@
     'reset' : False,
     'feedback' :  True,
     'null_stimulus_period' : 150.0,
-    'store_stimuli' : False,    
+    'store_stimuli' : {
+        'frame_grab_period' : 120,
+        'first_frame' : 0,
+        'num_to_grab' : 0
+    },
     'min_delay' : 0.1,
     'max_delay' : 100,
     'time_step' : 0.1,
-    'pynn_seed' : 5,
+    'pynn_seed' : 995, # This is a seed originally used by Luca. The default mozaik-models V1 model is using seed 5   !!!!!!!!!!
     'mpi_seed' : 1023,
     'l23' : True,
     'trial' : 0,
@@ -33,4 +37,5 @@
        'sheet_name': 'V1_Exc_L4',
        'threshold': 50, # Hz
     },
+    'steps_get_data' : 10000,
 }

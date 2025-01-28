@@ -3,35 +3,35 @@ from mozaik.experiments import *
 from mozaik.experiments.vision import *
 from mozaik.sheets.population_selector import RCRandomPercentage
 from parameters import ParameterSet
+from mozaik.experiments.electrical_stimulation import RandomSingleNeuronStepCurrentInjection, RandomSingleNeuronStepCurrentInjectionDuringDriftingSinusoidalGratingStimulation
 
-
-def create_experiments(model):
+def create_experiments(model,p):
     return [
-        # Spontaneous Activity
         # NoStimulation(model,duration=2*147*7),
-        # MeasureSpontaneousActivity(model,2*147*7,1),
-        # MeasureOrientationTuningFullfield(model,num_orientations=1,spatial_frequency=0.8,temporal_frequency=2,grating_duration=4*147*7,contrasts=[0,2,4,8,16,32,64,100],num_trials=10),
-        # MeasurePixelMovieFromFile(model,ParameterSet({
-        #      'duration' : 70,
-        #      'movie_path' : './',
-        #      'movie_name' : 'example_pixel_movie.npy',
-        #      'num_trials' : 1,
-        #      'shuffle_stimuli' : False
-        #  })),
-        MeasurePixelMovieFromFileNew(
-            model,
-            ParameterSet(
-                {
-                    "movie_path": "./",
-                    "movie_name": "example_pixel_movie.npy",
-                    "num_trials": 2,
-                    "shuffle_stimuli": False,
-                    "width": 11,
-                    "movie_frame_duration": 14,
-                    "global_frame_offset": 0,
-                    "images_per_trial": 5,
-                    "num_presentation_trials": 2,
-                }
-            ),
-        ),
+        MeasureSpontaneousActivity(model,ParameterSet({'duration':2*147*7,'num_trials':1,'shuffle_stimuli' : False})),
+        MeasureOrientationTuningFullfield(model,ParameterSet({'num_orientations' : 1,'spatial_frequency': 0.8,'temporal_frequency' : 2,'grating_duration': 2*147*7,'contrasts' : [0,2,4,8],'num_trials' :1,'shuffle_stimuli' : False})),
+
+        #RandomSingleNeuronStepCurrentInjection(
+        #    model,
+        #    ParameterSet(
+        #        {
+        #                'duration': 500,
+        #                'current' : 0.06,
+        #                'sheet' : "V1_Exc_L4",
+        #                'num_neurons' : 2,
+        #                'num_trials' : 1, 
+        #                'experiment_random_seed' : 513,
+        #                'stimulation_configuration' : ParameterSet({
+        #                        'component' :  'mozaik.sheets.population_selector.RCAllWihinBoundry',
+        #                        'params' : ParameterSet({
+        #                            'size': 2000,
+        #                            'offset_x' : 0, 
+        #                            'offset_y' : 0, 
+        #                    }),
+        #                }),
+        #        }
+        #    ),
+        #),
+
+
     ]

@@ -87,29 +87,37 @@ Each target for optimization needs to have specified:
 `SpontActivityTarget`
 - This target calculates spontaneous activity from spikes of all neurons in the sheet
 - target_value : range of values (any value within the rage gives score 0)
+
 `IrregularityTarget`
 - This target calculates mean irregularity (coefficient of variation) from all the neurons in the sheet 
 - target_value : float, (1 = irregular), (Bounded target - anything above this number gives score 0)
+
 `SynchronyTarget`
 - This target calculates synchrony as mean correlation coefficient between neuron PSTHs. Neurons used for the statistics must meet following conditions:
     - placed within a centered square 3x3
     -  have at least 6 spikes during NoStimulus experiment 
 - target_value : 0
+
 `OrientationTuningPreferenceTarget`
 - This target calculates orientation preference as a ratio of mean activity for drifting grating of optimal orientation and mean activity for drifting grating of orthogonal orientation.
 - target_value :  5 (Bounded target - anything above this number gives score 0)
+
 `OrientationTuningOrthoHighTarget`
 - This target calculates the difference  of spontaneous activity and activity for drifting grating of orientation orthogonal to optimal orientation for high contrast
 - target_value : 0
+
 `OrientationTuningOrthoLowTarget`
 - This target calculates the difference  of spontaneous activity and activity for drifting grating of orientation orthogonal to optimal orientation for low contrast
 - target_value : 0
+
 `SizeTuning`
 - This target calculates size tuning as a fraction of cells that  show suppression. Suppression is defined here as a ratio between firing rate in response to disk of radius 1.25 and full field grating. If the ratio is greater than 1.1, the cell is assumed to show suppression.
 - target_value : 0.7 (Bounded target - anything above this number gives score 0)
+
 `ConductanceRatio`
 - This target calculates the ratio of Inhibitory to Excitatory synaptic conductances.
 - target_value : 5.0
+
 `ModulationRatio`
 - This target calculates the Modulation Ratio (F1/F0) from spiking activity
 - target_value : 1.5 (simple cells), 0.5 (complex cells)
